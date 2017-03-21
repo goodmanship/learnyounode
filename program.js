@@ -1,5 +1,10 @@
 const fs = require('fs')
-function logLines(err, data) {
-  console.log(data.split('\n').length - 1)
+const path = require('path')
+function filter(fileName) {
+  return path.extname(fileName).slice(1) === process.argv[3]
 }
-fs.readFile(process.argv[2], 'utf8', logLines)
+function filteredFiles(err, list) {
+  if (err) return console.log(err)
+  list.filter(filter).forEach(f => console.log(f))
+}
+fs.readdir(process.argv[2], 'utf8', filteredFiles)
