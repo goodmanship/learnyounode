@@ -1,3 +1,5 @@
-let sum = 0;
-process.argv.slice(2).forEach(arg => sum = sum + Number(arg))
-console.log(sum);
+const fs = require('fs')
+function logLines(err, data) {
+  console.log(data.split('\n').length - 1)
+}
+fs.readFile(process.argv[2], 'utf8', logLines)
