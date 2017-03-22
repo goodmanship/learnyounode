@@ -1,10 +1,7 @@
-const fs = require('fs')
-const path = require('path')
-function filter(fileName) {
-  return path.extname(fileName).slice(1) === process.argv[3]
+const rio = require('./rio')
+
+function printout(err, list) {
+  if (err) console.log(err)
+  list.forEach(f => console.log(f))
 }
-function filteredFiles(err, list) {
-  if (err) return console.log(err)
-  list.filter(filter).forEach(f => console.log(f))
-}
-fs.readdir(process.argv[2], 'utf8', filteredFiles)
+rio(process.argv[2], process.argv[3], printout)
