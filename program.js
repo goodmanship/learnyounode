@@ -1,13 +1,10 @@
 const http = require('http')
+const bl = require('bl')
 http.get(process.argv[2], response => {
-  response.setEncoding('utf8')
-  let chars = '';
-  response.on('data', data => {
-    chars += data
-  })
-  response.on('end', () => {
-    console.log(chars.length)
-    console.log(chars)
-  })
-  response.on('error', console.error)
+  response.pipe(bl((err, data) => {
+    if (err) console.log(err)
+    data = data.toString()
+    console.log(data.length)
+    console.log(data)
+  }))
 }).on('error', console.error)

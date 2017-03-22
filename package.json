@@ -1,0 +1,22 @@
+{
+  "name": "learnyounode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "program.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goodmanship/learnyounode.git"
+  },
+  "author": "rio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goodmanship/learnyounode/issues"
+  },
+  "homepage": "https://github.com/goodmanship/learnyounode#readme",
+  "dependencies": {
+    "bl":"latest"
+  }
+}
