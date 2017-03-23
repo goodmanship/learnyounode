@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/goodmanship/learnyounode#readme",
   "dependencies": {
-    "strftime":"latest"
+    "through2-map":"latest"
   }
 }
