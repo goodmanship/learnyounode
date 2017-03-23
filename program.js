@@ -1,9 +1,9 @@
-const net = require('net')
-const strftime = require('strftime')
+const fs = require('fs')
+const http = require('http')
 
-function listener(socket) {
-  const date = strftime('%Y-%m-%d %H:%M', new Date())
-  socket.end(date + '\n')
+function listener(req, res) {
+  const src = fs.createReadStream(process.argv[3])
+  src.pipe(res)
 }
-const server = net.createServer(listener)
+const server = http.createServer(listener)
 server.listen(process.argv[2])
